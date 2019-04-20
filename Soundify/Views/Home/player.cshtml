@@ -1,0 +1,30 @@
+﻿@model Soundify.Models.video
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>Soundify - Playback</title>
+
+<div class="w3-half w3-deep-purple w3-container w3-animate-bottom" style="height:700px">
+    <div class="w3-padding-64 w3-center">
+        <h1>YouTube Web Player</h1>
+        <div class="w3-center w3-padding-large">
+            @using (Html.BeginForm("webPlayer", "Home", FormMethod.Post)) {
+                <h5>Supply a YouTube video, and we'll play it ad-free:</h5>
+                @Html.EditorFor(x => x.url, new { htmlAttributes = new { @class = "forms", placeholder = "e.g. https://www.youtube.com/watch?v=" } })
+                <br /><button class="w3-button w3-block w3-light-green w3-center w3-text-white" type="submit">Play Video</button>
+                <label class="field-validation-error"><br />@Html.DisplayFor(x => x.message)</label>
+            }
+
+            <!-- Have video player appear when YouTube link has been submitted -->
+            @if (Model.fileLocation != null) {
+                <video width="400" height="281" autoplay="autoplay" controls="controls" id="backgroundVideo">
+                    <source src="~/Videos/vid.mp4" type="video/mp4;codecs="avc1.42E01E, mp4a.40.2"'">
+                    Your browser does not support HTML5 video.
+                </video>
+                <p>@Model.fileType</p>
+            }
+        </div>
+    </div>
+</div>

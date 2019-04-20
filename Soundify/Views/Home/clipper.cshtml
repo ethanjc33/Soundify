@@ -1,0 +1,25 @@
+﻿@model Soundify.Models.video
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<title>Soundify - Clipper</title>
+
+<div class="w3-half w3-brown w3-container w3-animate-bottom" style="height:700px">
+    <div class="w3-padding-64 w3-center">
+        <h1>Screenshot Clipper</h1>
+        <div class="w3-center w3-padding-large">
+            <h4>Supply a YouTube link and a time frame,<br />and we'll convert it to an image file</h4>
+            @using (Html.BeginForm("screenshot", "Home", FormMethod.Post)) {
+                @Html.EditorFor(x => x.url, new { htmlAttributes = new { @class = "forms", placeholder = "e.g. https://www.youtube.com/watch?v=" } })
+                <br /><h4>Select a time to capture a screenshot from that exact moment</h4>
+                <h5>(Hint: ##:## is translated as minutes:seconds)</h5>
+                @Html.EditorFor(x => x.startTime, new { htmlAttributes = new { @class = "forms-medium", type = "text", placeholder = "Start Time, e.g. 01:24", min = "0", pattern = "^[0-5][0-9]:[0-5][0-9]{1,3}$" } })
+                <br /><br />
+                <button class="w3-button w3-block w3-light-green w3-center w3-text-white" type="submit">Clip Screenshot</button>
+                <label class="field-validation-error"><br />@Html.DisplayFor(x => x.message)</label>
+            }
+        </div>
+    </div>
+</div>

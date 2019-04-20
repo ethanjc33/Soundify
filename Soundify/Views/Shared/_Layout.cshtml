@@ -1,0 +1,75 @@
+﻿<!-- Page Layout -->
+
+<!DOCTYPE HTML>
+
+<style type="text/css">
+    .forms {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .forms-medium {
+        width: 45%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .field-validation-error {
+        color:red;
+    }
+
+    input[type="radio"] {
+        margin: 0 25px 0 5px;
+        width:24px;
+        height:24px;
+        position:relative;
+        top:6px
+    }
+</style>
+
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Archivo+Narrow" rel="stylesheet">
+        <link href="/Content/w3.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="../favicon.ico" type="image/ico" />
+    </head>
+
+
+
+<body class="w3-content" style="max-width:1500px; background-color:black">
+
+    <!-- First Grid: Logo & About -->
+    <div class="w3-row">
+        <div class="w3-half w3-black w3-container w3-center" style="height:700px">
+            <div class="w3-padding" style="font-size:48px;font-style:italic;">
+                <p>Soundify</p>
+                <img src="/Content/logo.png" class="w3-margin w3-circle" alt="Person" style="width:25%">
+            </div>
+
+            <div class="w3-padding">
+                <a href="~/Home/soundify" class="w3-button w3-black w3-block w3-hover-teal w3-padding-16">Home</a>
+                <a href="~/Home/about" class="w3-button w3-black w3-block w3-hover-amber w3-padding-16">About</a>
+                <a href="~/Home/player" class="w3-button w3-black w3-block w3-hover-purple w3-padding-16">Web Player</a>
+                <a href="~/Home/clipper" class="w3-button w3-black w3-block w3-hover-brown w3-padding-16">Screenshot Clipper</a>
+                <a href="~/Home/converter" class="w3-button w3-black w3-block w3-hover-grey w3-padding-16">MediaFile Converter</a>
+            </div>
+        </div>
+
+    @RenderBody()
+
+    </div>
+</body>
+</html>
